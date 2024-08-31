@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<base target="_top">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>Quick Start - Leaflet</title>
+	
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+	<style>
+		html, body {
+			height: 100%;
+			margin: 0;
+		}
+		.leaflet-container {
+			height: 400px;
+			width: 600px;
+			max-width: 100%;
+			max-height: 100%;
+		}
+        #map {
+            /* width: 800px; height: 400px; */
+            width: 100%;
+            height: 100%;
+        }
+	</style>
+
+	
+</head>
+<body>
+
+
+
+<div id="map" ></div>
+<script>
+
+const places = [
+
+['7/27',	45.39977801179524, -92.64957097464813],
+['7/27',	45.395518975637096, -92.63683596214287],
+['7/27',	45.4517,-92.5537],
+['7/28',	45.5833869626896, -92.48839340739855],
+['7/28',	45.5976,-92.3864],
+['7/29',	45.6165,-92.3011],
+['7/30',	45.6760,-92.2585],
+['7/31',	45.6552,-92.0717],
+['8/1',45.6633,-91.9717],
+['8/2',45.5719,-91.7597],
+['8/3',45.5753,-91.5518],
+['8/4',45.4492,-91.4765],
+['8/5',45.41434659871418, -91.42869704530055],
+['8/6',45.2297,-91.4394],
+['8/7',45.1994,-91.2091],
+['8/8',     45.181829228368244, -91.16116163658907],
+['8/9',     45.141041371329514, -90.80583820298571],
+['8/10',    45.1752167, -90.6041646	],
+['8/11',	45.2669266, -90.5460173],
+['8/12',	45.3117642, -90.2963714],
+['8/13',	45.3630979, -90.1701154],
+['8/14',	45.3630979, -90.1701154],
+['8/15',	45.3378586, -90.0831173],
+['8/16',	45.3066343, -89.9002748],
+['8/17',	45.2894666, -89.7919980],
+['8/18',	45.3098958, -89.5966702],
+['8/19',	45.4103130, -89.4626690],
+['8/20',	45.4103130, -89.4626690],
+['8/21',	45.3761601, -89.2943121],
+['8/22',	45.3213074, -89.0901726],
+['8/23',	45.2819818, -88.9449249],
+['8/24',	45.1435805, -89.1450942],
+['8/25',	45.0069429, -89.3345919],
+['8/26',	44.8312886, -89.3466481],
+['8/27',	44.9838704, -89.6401210],
+['8/28',	44.5404780, -89.2166143],
+['8/29',	44.3894945, -89.2194624],
+['8/30',	44.2974017, -89.8476680],
+];
+
+    console.log(places);
+
+	const map = L.map('map').setView([45.0, -91.0], 8);
+    //const map = L.map('map').setView();
+
+	const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		maxZoom: 19,
+		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	}).addTo(map);
+
+    for(place of places){
+		if(place[1] && place[2]){
+        L.marker([place[1], place[2]]).addTo(map)
+		.bindPopup(String(place[0]));
+		}
+    }
+
+	// const marker = L.marker([51.5, -0.09]).addTo(map)
+	// 	.bindPopup('<b>Hello world!</b><br />I am a popup.');
+
+	// const circle = L.circle([51.508, -0.11], {
+	// 	color: 'red',
+	// 	fillColor: '#f03',
+	// 	fillOpacity: 0.5,
+	// 	radius: 500
+	// }).addTo(map).bindPopup('I am a circle.');
+
+	// const polygon = L.polygon([
+	// 	[51.509, -0.08],
+	// 	[51.503, -0.06],
+	// 	[51.51, -0.047]
+	// ]).addTo(map).bindPopup('I am a polygon.');
+
+
+	// const popup = L.popup()
+	// 	.setLatLng([51.513, -0.09])
+	// 	.setContent('I am a standalone popup.')
+	// 	.openOn(map);
+
+	// function onMapClick(e) {
+	// 	popup
+	// 		.setLatLng(e.latlng)
+	// 		.setContent(`You clicked the map at ${e.latlng.toString()}`)
+	// 		.openOn(map);
+	// }
+
+	// map.on('click', onMapClick);
+
+</script>
+
+
+
+</body>
+</html>
