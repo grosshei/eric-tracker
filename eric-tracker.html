@@ -91,6 +91,7 @@ const places = [
 ['9/7',	43.4208164, -89.6390850],
 ['9/8',	43.4301674, -89.7290872],
 ['9/9',	43.3655556, -89.6204167],
+['9/10', 43.2795278, -89.5477500],
 
 ];
 
@@ -100,7 +101,7 @@ const places = [
 
 	const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 		maxZoom: 19,
-		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="https://data-wi-dnr.opendata.arcgis.com/datasets/ice-age-trail/explore">WI DNR</a>, & Eric'
 	}).addTo(map);
 
     for(place of places){
